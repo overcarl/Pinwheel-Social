@@ -4,6 +4,14 @@
     "description": "Pinwheel Social é uma rede social criada pela comunidade Pinwheel no Discord."
   },
   "body": {
+    "navbar": {
+      "dropdown": {
+        "1": "Perfil",
+        "2": "Configurações",
+        "3": "Conectar",
+        "4": "Desconectar"
+      }
+    },
     "tweet": "O que está acontecendo?",
     "send": "Enviar"
   }
