@@ -4,6 +4,14 @@
     "description": "Pinwheel Social is a social network built for the Pinwheel community on Discord."
   },
   "body": {
+    "navbar": {
+      "dropdown": {
+        "1": "Profile",
+        "2": "Settings",
+        "3": "Login",
+        "4": "Logout"
+      }
+    },
     "tweet": "What's happening?",
     "send": "Send"
   }

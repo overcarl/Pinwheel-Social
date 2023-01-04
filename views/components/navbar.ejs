@@ -1,8 +1,28 @@
-<nav class="bg-slate-900/65 items-center drop-blur-lg text-slate-100 flex w-full justify-between p-2">
-  <div id="brand">
-    <p>PinSocial</p>
+<nav class="fixed top-0 left-0 right-0 z-[3] border-gray-200 p-4 sm:px-4 py-2.5 rounded bg-gray-900/70 backdrop-blur-lg drop-shadow-sm" x-data="{dropdown: false}">
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <a href="/" class="flex ml-5 items-center">
+      
+    </a>
+    <button class="m-2 mr-2 right-0 drop-shadow-md" @click="dropdown = ! dropdown" @click.outside="dropdown = false" type="button">
+      <%if(req.user) {%>
+        <img class="w-10 h-10 rounded-full " src="<%=!req.user.avatar?'https://cdn.discordapp.com/embed/avatars/0.png':`https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}?size=4096`%>" alt="User avatar" />
+        <%} else {%>
+          <img class="w-10 h-10 rounded-full " src="https://cdn.discordapp.com/embed/avatars/0.png" alt="User avatar" />
+        <%}%>
+    </button>
   </div>
-  <div>
-    <img class="rounded-full w-12" src="https://cdn.discordapp.com/embed/avatars/0.png"/>
+    <div class="fixed right-0 z-10 mr-3 divide-y divide-slate-700 divide-slate-400 rounded shadow w-44 bg-gray-700" x-show="dropdown" x-transition.scale.opacity.origin.top.duration.300ms>
+      <ul class="py-1 text-sm text-gray-200">
+        <li><a class="navbarLink"><%=req.t("body.navbar.dropdown.1")%></a></li>
+        <li><a class="navbarLink"><%=req.t("body.navbar.dropdown.2")%></a></li>
+        <%if(req.user) {%>
+          <li><a href="/api/logout" class="navbarLink"><%=req.t("body.navbar.dropdown.4")%></a></li>
+        <%} else {%>
+          <li><a href="/api/auth/callback" class="navbarLink"><%=req.t("body.navbar.dropdown.3")%></a></li>
+        <%}%>
+      </ul>
   </div>
 </nav>
+<br>
+<br>
+<br>

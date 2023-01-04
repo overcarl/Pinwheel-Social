@@ -3,18 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="application-name" content="Pinwheel Social" />
+    <meta name="description" content="<%=req.t('header.description')%>"/>
+    <meta name="og:title" content="<%=req.t('header.title')%>"/>
     <title><%=req.t("header.title")%></title>
     <script src="//cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Inter&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .navbarLink {
+         @apply no-underline block px-4 py-2 hover:bg-gray-600 hover:text-white;
+        }
+      }
+    </style>
     <style>
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
     </style>
   </head>
   <body class="bg-slate-900 text-slate-100">
-    <%-include("./components/navbar.ejs")%>
+    <%-include('./components/navbar.ejs')%>
     <%-body%>
   </body>
 </html>
