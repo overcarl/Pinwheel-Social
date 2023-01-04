@@ -1,10 +1,10 @@
 {
   "header": {
     "title": "PinSocial",
-    "description": "Pinwheel Social is a social network built for the Pinwheel community on Discord."
+    "description": "Pinwheel Social é uma rede social criada pela comunidade Pinwheel no Discord."
   },
   "body": {
-    "tweet": "What's happening?",
-    "send": "Send"
+    "tweet": "O que está acontecendo?",
+    "send": "Enviar"
   }
 }
