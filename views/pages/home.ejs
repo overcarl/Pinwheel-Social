@@ -1,0 +1,8 @@
+<%- contentFor('body') %>
+  <div x-data="{ open: false }">
+    <button @click="open = !open">Expand</button>
+ 
+    <span x-show="open" x-transition>
+      Regular font test
+    </span>
+   </div>

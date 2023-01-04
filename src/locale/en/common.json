@@ -1,0 +1,10 @@
+{
+  "header": {
+    "title": "PinSocial",
+    "description": "Pinwheel Social is a social network built for the Pinwheel community on Discord."
+  },
+  "body": {
+    "tweet": "What's happening?",
+    "send": "Send"
+  }
+}
