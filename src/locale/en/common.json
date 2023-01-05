@@ -5,6 +5,7 @@
   },
   "body": {
     "navbar": {
+      "disconnected": "Disconnected",
       "dropdown": {
         "1": "Profile",
         "2": "Settings",

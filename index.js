@@ -9,6 +9,11 @@ const Backend = require('i18next-fs-backend');
 const i18nextMiddleware = require('i18next-http-middleware');
 const fs = require('node:fs');
 const expressLayouts = require('express-ejs-layouts')
+const ejs = require('ejs');
+const japirest = require('japi.rest');
+const japiRest = new japirest(process.env.JapiKey)
+
+module.exports.Japi = japiRest;
 
 i18next
   .use(Backend)
@@ -32,6 +37,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 
 app.set('view engine', 'ejs');
+
 app.use(expressLayouts)
 
 passport.serializeUser(function(user, done) {
@@ -62,7 +68,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-  
+
 app.use("/", require('./api/home'))
 app.use("/api", require('./api/index'))
 
