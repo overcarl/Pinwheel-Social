@@ -4,13 +4,14 @@ $(function() {
     const datau = await fetch("/api/user/info");
     const user = await datau.json();
     console.log(user)
-    if(!user) return window.location.href="/api/auth/callback";
-    
+    if (!user) return window.location.href = "/api/auth/callback";
+
     $.post("/api/v1/post", {
       content: e.target[0].value
-    }, function(data,error) {
-      if(error) return;
+    }, function(data, error) {
+      if (error) return;
     })
-    posts()
+    lastposts()
+    e.target[0].value = ""
   })
 })

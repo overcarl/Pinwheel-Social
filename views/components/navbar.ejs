@@ -1,10 +1,10 @@
-<nav class="fixed top-0 left-0 right-0 z-[3] border-gray-200 p-4 sm:px-4 py-2.5 rounded bg-gray-900/70 backdrop-blur-lg drop-shadow-sm" x-data="{dropdown: false}">
+<nav class="fixed w-full top-0 z-[1] border-gray-200 p-4 sm:px-4 py-2.5 rounded bg-gray-900/70 backdrop-blur-lg drop-shadow-sm" x-data="{dropdown: false}">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="/" class="flex ml-5 items-center">
-      <img src="/favicon.ico" class="w-14"/>
-      <p class="text-xl"><span class="font-regular">Pin</span><span class="font-black">Social</span></p>
+    <a aria-label="voltar" href="/" class="flex ml-5 items-center">
+      <img src="/favicon.svg" class="w-14 mr-2"/>
+      <p class="hidden text-xl"><span class="font-regular">Wind</span><span class="font-black">Social</span></p>
     </a>
-    <button class="m-2 mr-2 right-0 drop-shadow-md" @click="dropdown = ! dropdown" @click.outside="dropdown = false" type="button">
+    <button aria-label="Menu" class="m-2 mr-2 right-0 drop-shadow-md" @click="dropdown = ! dropdown" @click.outside="dropdown = false" type="button">
       <%if(req.user) {%>
         <img class="w-10 h-10 rounded-full " src="<%=!req.user.avatar?'https://cdn.discordapp.com/embed/avatars/0.png':`https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}?size=4096`%>" alt="User avatar" />
         <%} else {%>
@@ -17,12 +17,12 @@
       <div><%=req.user?req.user.username:req.t("body.navbar.disconnected")%></div>
     </div>
       <ul class="py-1 text-sm text-gray-200">
-        <li><a class="navbarLink"><%=req.t("body.navbar.dropdown.1")%></a></li>
-        <li><a class="navbarLink"><%=req.t("body.navbar.dropdown.2")%></a></li>
+        <li><a aria-label="Perfil" aria-describedby="<%=req.t('menu.profile', {ns: 'accessibility'})%>" class="navbarLink"><%=req.t("body.navbar.dropdown.1")%></a></li>
+        <li><a aria-label="Configurações" aria-describedby="<%=req.t('menu.settings', {ns: 'accessibility'})%>" class="navbarLink"><%=req.t("body.navbar.dropdown.2")%></a></li>
         <%if(req.user) {%>
-          <li><a href="/api/logout" class="navbarLink"><%=req.t("body.navbar.dropdown.4")%></a></li>
+          <li><a aria-describedby="<%=req.t('menu.logout', {ns: 'accessibility'})%>" href="/api/logout" class="navbarLink"><%=req.t("body.navbar.dropdown.4")%></a></li>
         <%} else {%>
-          <li><a href="/api/auth/callback" class="navbarLink"><%=req.t("body.navbar.dropdown.3")%></a></li>
+          <li><a aria-describedby="<%=req.t('menu.login', {ns: 'accessibility'})%>" href="/api/auth/callback" class="navbarLink"><%=req.t("body.navbar.dropdown.3")%></a></li>
         <%}%>
       </ul>
   </div>

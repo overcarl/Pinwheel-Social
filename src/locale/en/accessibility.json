@@ -1,0 +1,16 @@
+{
+  "menu": {
+    "user": "User menu",
+    "profile": "Profile",
+    "settings": "Settings",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "post": {
+    "write": "Write something to wind",
+    "send": "Windpost"
+  },
+  "common": {
+    "loading": "Page is loading..."
+  }
+}

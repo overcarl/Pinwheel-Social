@@ -1,43 +1,93 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="<%=req.locale%>">
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="application-name" content="Pinwheel Social" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-    <meta name="og:image" content="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0; user-scalable=yes">
+    <meta name="application-name" content="Wind Social" />
+    <link rel="icon" type="image/x-icon" href="/favicon.svg" />
+    <meta name="og:image" content="/favicon.svg">
     <meta name="theme-color" content="#1e293b" />
     <meta name="og:site_name" content="<%=req.t('header.title')%>">
-    <meta name="og:description" content="<%=req.t('header.description')%>"/>
-    <meta name="og:title" content="<%=req.t('header.title')%>"/>
+    <meta name="og:description" content="<%=req.t('header.description')%>" />
+    <meta name="og:title" content="<%=req.t('header.title')%>" />
     <title><%=req.t("header.title")%></title>
     <script src="//cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Inter&display=swap" rel="stylesheet">
-    <style type="text/tailwindcss">
-      @layer utilities {
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Inter&display=swap" rel="stylesheet"/>
+    <style type="text/tailwindcss"> @layer utilities {
+
         .navbarLink {
+
          @apply no-underline block px-4 py-2 hover:bg-gray-600 hover:text-white;
+
         }
+
       }
+
     </style>
     <style>
-      html, body {
-        height: 100vh;
-        font-family: 'Poppins', sans-serif;
-      }
+        html,
+        body {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+        textarea {
+            resize: none;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: rgba(0, 0, 0, .9);
+        }
+        img.emoji {
+            height: 1em;
+            width: 1em;
+            margin: 0 .05em 0 .1em;
+            vertical-align: -0.1em;
+        }
     </style>
-      <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-      <script src="//unpkg.com/feather-icons">
-        
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-  </head>
-  <body class="bg-slate-900 text-slate-100">
-    <%-include('./components/navbar.ejs')%>
-      <%- body%>
-        <script>
-          feather.replace()
-        </script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="//unpkg.com/feather-icons">
+    </script>
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+</head>
+
+<body class="bg-slate-900 text-slate-100"> 
+  <%-include('./components/navbar.ejs')%>
+    <%- body%>
+    <button onclick="topFunction()" id="backtop" class=" opacity-0 fixed bottom-0 right-0 rounded-full bg-blue-600 p-2 m-4 transition-all" title="Go to top"><i data-feather="arrow-up"></i></button>
+    <script src="/backToTop.js">
+     
+    </script>
+    <script>
+        moment.locale("<%=req.locale%>")
+    </script>
+    <script>
+        twemoji.parse(document.body)
+        feather.replace()
+    </script>
+</body>
 </html>

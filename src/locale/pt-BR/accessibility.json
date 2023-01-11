@@ -1,0 +1,16 @@
+{
+  "menu": {
+    "user": "Menu do usuário",
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "login": "Conectar",
+    "logout": "Desconectar"
+  }
+  "post": {
+    "write": "Escreva algo para dar corda",
+    "send": "Wind"
+  }
+  "common": {
+    "loading": "A página está carregando..."
+  }
+}
